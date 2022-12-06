@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: eks-devops
-          image: gitops-demo:2022-12-06.03.39.36.87906f5c
+          image: 328916801733.dkr.ecr.ap-southeast-2.amazonaws.com/gitops-demo:2022-12-06.03.39.36.87906f5c
           ports:
             - containerPort: 80
