@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: eks-devops
-          image: gitops-demo:2022-12-06.01.31.17.8bdf0c9a
+          image: gitops-demo:2022-12-06.03.39.36.87906f5c
           ports:
             - containerPort: 80
