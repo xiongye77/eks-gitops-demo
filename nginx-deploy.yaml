@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: eks-devops
-          image: 659304862788.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:e2b567f478bda521a406ae3fa8bb150061502a0b
+          image: 659304862788.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:2022-12-08.01.32.19.37ddea5c
           ports:
             - containerPort: 80
