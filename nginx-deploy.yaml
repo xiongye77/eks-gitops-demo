@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: app-deployment
-        image: 832760563441.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:2022-12-09.05.39.08.4824a4ec
+        image: 832760563441.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:2022-12-09.06.18.16.ec50a83e
         ports:
         - containerPort: 80
