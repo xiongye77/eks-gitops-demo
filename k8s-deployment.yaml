@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: gitops
-        image: nginx
+        image: 832760563441.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:2022-12-09.06.18.16.ec50a83e
         ports:
-        - containerPort: 80
+        - containerPort: 8080
