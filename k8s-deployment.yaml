@@ -1,21 +1,62 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gitops-demo
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gitops-deployment
-  labels:
-    env: dev
+  namespace: gitops-demo
+  name: deployment-2048
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      env: dev
+      app.kubernetes.io/name: app-2048
+  replicas: 1
   template:
     metadata:
       labels:
-        env: dev
+        app.kubernetes.io/name: app-2048
     spec:
       containers:
-      - name: gitops
-        image: nginx
+      - image: 568669752312.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:2022-12-10.00.07.05.d69d7bf6
+        imagePullPolicy: Always
+        name: app-2048
         ports:
-        - containerPort: 80
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: gitops-demo
+  name: service-2048
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: app-2048
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: gitops-demo
+  name: ingress-2048
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+spec:
+  rules:
+    - http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: service-2048
+              port:
+                number: 80
