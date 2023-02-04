@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/name: app-2048
     spec:
       containers:
-      - image: 571626811355.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:2023-02-04.03.59.03.d1e60ea7
+      - image: 356933967075.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-random-123456:2023-02-04.10.53.05.3e6cc68d
         name: app-2048
         ports:
         - containerPort: 8080
